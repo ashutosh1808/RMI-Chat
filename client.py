@@ -3,8 +3,8 @@ import json
 import socket as sk
 
 def get_uris(server, port):
-	'''Função que se conecta ao servidor \"dns\" de uri
-	e descobre quais são os chats existentes'''
+	'''Function that connects to the "dns" uri server
+	and find out what chats there are'''
 	socket = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
 	socket.connect((server, port))
 
@@ -16,7 +16,7 @@ def get_uris(server, port):
 
 def main(server='localhost', port=25500):
 
-	#while para encontrar um nome de usuário válido
+	#to find a valid username
 	while True:
 		username = input('Username: ')
 
@@ -28,9 +28,9 @@ def main(server='localhost', port=25500):
 
 	uris = get_uris(server, port)
 
-	#while para selecionar uma sala de bate-papo válidada
+	#valid chatroom check
 	while True:
-		print('Chats disponíveis:')
+		print('Chats rooms:')
 		for n, item in enumerate(uris):
 			print(f"{n}: {item[0]}")
 
@@ -41,8 +41,6 @@ def main(server='localhost', port=25500):
 			break
 		except (IndexError, ValueError):
 			print(f"'{selection}' is not a valid chat, please, try again.")
-
-	#A representação do usuário conectada ao bate-papo é instanciada
 	u = user.User(uri, username)
 
 
