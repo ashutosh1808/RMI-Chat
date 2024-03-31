@@ -39,8 +39,8 @@ class User():
 		entry_field.bind("<Return>", self.send_message)
 		entry_field.pack(pady=10)
 
-		send_button = tkinter.Button(self.top, text="Send", command=self.send_message,font=f)
-		send_button.pack(pady=10)
+		send_button = tkinter.Button(self.top, text="Send Msg", command=self.send_message,font=f)
+		send_button.pack(pady=10) 
 
 		#On closing
 		self.top.protocol("WM_DELETE_WINDOW", self.disconnect)
