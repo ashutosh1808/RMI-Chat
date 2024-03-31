@@ -16,7 +16,7 @@ class User():
 		#Creating window
 		self.top = tkinter.Tk()
 		self.top.title(f"{self.username.capitalize()}'s chat")# at {self.chat.name}")
-		self.top.geometry("600x700+50+90")
+		self.top.geometry("600x700+50+70")
 		self.top.iconbitmap("chat.ico")
 		f=("Arial",19,"bold")
 
@@ -35,7 +35,7 @@ class User():
 		#Creating input text field
 		self.my_msg = tkinter.StringVar()
 		# my_msg.set("Type your messages here.")
-		entry_field = tkinter.Entry(self.top, textvariable=self.my_msg,font=f)
+		entry_field = tkinter.Entry(self.top, textvariable=self.my_msg,font=f,width=36)
 		entry_field.bind("<Return>", self.send_message)
 		entry_field.pack(pady=10)
 
