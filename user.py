@@ -15,28 +15,32 @@ class User():
 
 		#Creating window
 		self.top = tkinter.Tk()
-		self.top.title(f"{self.username}'s chat")# at {self.chat.name}")
+		self.top.title(f"{self.username.capitalize()}'s chat")# at {self.chat.name}")
+		self.top.geometry("600x700+50+90")
+		self.top.iconbitmap("chat.ico")
+		f=("Arial",19,"bold")
 
 		messages_frame = tkinter.Frame(self.top)
-
+		
+		
 		#Creating display messages fields
 		scrollbar = tkinter.Scrollbar(messages_frame)
-		self.messages = tkinter.Listbox(messages_frame, height=15, width=50, yscrollcommand=scrollbar.set)
+		self.messages = tkinter.Listbox(messages_frame, height=15, width=40, yscrollcommand=scrollbar.set,font=f)
 
 		scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 		self.messages.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
-		self.messages.pack()
-		messages_frame.pack()
+		self.messages.pack(pady=10)
+		messages_frame.pack(pady=10)
 
 		#Creating input text field
 		self.my_msg = tkinter.StringVar()
 		# my_msg.set("Type your messages here.")
-		entry_field = tkinter.Entry(self.top, textvariable=self.my_msg)
+		entry_field = tkinter.Entry(self.top, textvariable=self.my_msg,font=f)
 		entry_field.bind("<Return>", self.send_message)
-		entry_field.pack()
+		entry_field.pack(pady=10)
 
-		send_button = tkinter.Button(self.top, text="Send", command=self.send_message)
-		send_button.pack()
+		send_button = tkinter.Button(self.top, text="Send", command=self.send_message,font=f)
+		send_button.pack(pady=10)
 
 		#On closing
 		self.top.protocol("WM_DELETE_WINDOW", self.disconnect)
