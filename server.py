@@ -73,9 +73,9 @@ class Server():
 
 if __name__=="__main__": 
 	server = Server()
-	server.create_chat('Sala de bate papo 1')
-	server.create_chat('Sala de bate papo 2')
-	server.create_chat('Sala de bate papo 3')
+	server.create_chat('Chat Room 1')
+	server.create_chat('Chat Room 2')
+	server.create_chat('Chat Room 3')
 	server.run()
 
 	#keeping server alive
